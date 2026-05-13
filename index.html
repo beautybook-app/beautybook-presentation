@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeautyBook — Partner Presentation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:     #E8474C;
+      --red-dark:#C73337;
+      --red-soft:#FFF0F0;
+      --black:   #1A1A1A;
+      --gray:    #6B6B6B;
+      --light:   #F8F5F2;
+      --white:   #FFFFFF;
+      --gold:    #D4A853;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--black);
+      background: #eee;
+    }
+
+    /* ─── PAGE SHELL ─── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--white);
+      margin: 0 auto 20px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    /* ─── PRINT ─── */
+    @media print {
+      body { background: none; }
+      .page { margin: 0; box-shadow: none; }
+    }
+
+    /* ─── SCREENSHOT PLACEHOLDER ─── */
+    .shot {
+      background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+      border: 2px dashed #ccc;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 8px;
+      color: #999;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+    .shot .shot-icon { font-size: 22px; margin-bottom: 6px; opacity: 0.5; }
+    .shot .shot-label { font-size: 9px; color: #bbb; margin-top: 3px; }
+
+    /* ─── PHONE FRAME ─── */
+    .phone-frame {
+      border-radius: 28px;
+      border: 6px solid #1a1a1a;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .phone-frame::before {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 8px;
+      background: #1a1a1a;
+      border-radius: 4px;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    /* ══════════════════════════════════════════════
+       PAGE 1 — COVER
+    ══════════════════════════════════════════════ */
+    #p1 {
+      background: linear-gradient(145deg, #1A1A1A 0%, #2d1515 55%, #1A1A1A 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+
+    .p1-top {
+      padding: 48px 48px 0;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 60px;
+    }
+    .logo-dot {
+      width: 32px;
+      height: 32px;
+      background: var(--red);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-dot svg { width: 18px; height: 18px; fill: white; }
+    .logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.02em;
+    }
+
+    .p1-badge {
+      display: inline-block;
+      background: rgba(232,71,76,0.2);
+      border: 1px solid rgba(232,71,76,0.5);
+      color: #ff9b9d;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 22px;
+    }
+
+    .p1-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      max-width: 320px;
+    }
+    .p1-headline span { color: var(--red); }
+
+    .p1-sub {
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      line-height: 1.6;
+      max-width: 280px;
+      margin-bottom: 40px;
+    }
+
+    .p1-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+    .p1-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+    }
+    .p1-pill .dot {
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .p1-bottom {
+      display: flex;
+      gap: 0;
+    }
+
+    .p1-stats {
+      width: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 20px 32px 0;
+      gap: 18px;
+    }
+    .p1-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+    .p1-stat-label {
+      font-size: 9px;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ══════════════════════════════════════════════
+       PAGE 2 — HOW IT WORKS
+    ══════════════════════════════════════════════ */
+    #p2 { padding: 48px; }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .eyebrow-line {
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+      border-radius: 2px;
+    }
+    .eyebrow-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .section-sub {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 460px;
+    }
+
+    .workflow-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .wct-client { color: var(--red); }
+    .wct-biz    { color: var(--black); }
+    .wct-badge {
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+    .wct-client .wct-badge { background: var(--red-soft); color: var(--red); }
+    .wct-biz    .wct-badge { background: #f0f0f0; color: #555; }
+
+    .workflow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .wf-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .wf-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .wf-num-red { background: var(--red); color: white; }
+    .wf-num-dark { background: var(--black); color: white; }
+    .wf-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 2px;
+    }
+    .wf-desc {
+      font-size: 10.5px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ══════════════════════════════════════════════
+       PAGE 3 — BUSINESS SPACE
+    ══════════════════════════════════════════════ */
+    #p3 { padding: 48px; }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card.accent {
+      background: var(--red);
+    }
+    .fc-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .fc-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 5px;
+    }
+    .feature-card.accent .fc-title { color: white; }
+    .fc-desc {
+      font-size: 10.5px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .feature-card.accent .fc-desc { color: rgba(255,255,255,0.75); }
+    .fc-list {
+      list-style: none;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .fc-list li {
+      font-size: 10.5px;
+      color: var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .feature-card.accent .fc-list li { color: rgba(255,255,255,0.75); }
+    .fc-list li::before {
+      content: '✓';
+      font-size: 9px;
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .feature-card.accent .fc-list li::before { color: rgba(255,255,255,0.6); }
+
+    .p3-shot-label {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ══════════════════════════════════════════════
+       PAGE 4 — STATISTICS
+    ══════════════════════════════════════════════ */
+    #p4 { padding: 48px; }
+
+    .stats-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stats-kpi-card {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .stats-kpi-icon { font-size: 18px; margin-bottom: 8px; display: block; }
+    .stats-kpi-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stats-kpi-value span { color: var(--red); }
+    .stats-kpi-label {
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .stats-sections-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .stats-section-card {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .stats-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stats-section-title .ss-icon { font-size: 14px; }
+    .stats-item {
+      font-size: 10.5px;
+      color: var(--gray);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .stats-item::before {
+      content: '→';
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+
+    /* ══════════════════════════════════════════════
+       PAGE 5 — CLIENT EXPERIENCE
+    ══════════════════════════════════════════════ */
+    #p5-client { padding: 48px; }
+
+    .cs-step {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .cs-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--red-soft);
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 10px;
+    }
+    .cs-icon { font-size: 18px; margin-bottom: 6px; }
+    .cs-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .cs-desc {
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .guarantee-item {
+      flex: 1;
+      background: var(--light);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gi-icon { font-size: 20px; flex-shrink: 0; }
+    .gi-title { font-size: 11px; font-weight: 700; color: var(--black); }
+    .gi-desc  { font-size: 9.5px; color: var(--gray); margin-top: 1px; }
+
+    /* ══════════════════════════════════════════════
+       PAGE — JOIN BEAUTYBOOK
+    ══════════════════════════════════════════════ */
+    #p5 {
+      background: linear-gradient(160deg, #1A1A1A 0%, #2d1515 100%);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .p5-eyebrow {
+      display: inline-block;
+      background: rgba(232,71,76,0.2);
+      border: 1px solid rgba(232,71,76,0.4);
+      color: #ff9b9d;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+
+    .p5-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .p5-headline span { color: var(--red); }
+
+    .p5-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .p5-benefits {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .p5-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .p5-benefit-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(232,71,76,0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .p5-bt-title { font-size: 12px; font-weight: 600; color: white; margin-bottom: 1px; }
+    .p5-bt-desc  { font-size: 10.5px; color: rgba(255,255,255,0.45); }
+
+    .p5-contact-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .p5-cc-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .p5-cc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .p5-cc-item:last-child { margin-bottom: 0; }
+    .p5-cc-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(232,71,76,0.15);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+    .p5-cc-val { font-size: 12px; color: white; font-weight: 500; }
+    .p5-cc-sub { font-size: 9.5px; color: rgba(255,255,255,0.35); }
+
+    .p5-cta-btn {
+      background: var(--red);
+      color: white;
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — COVER
+══════════════════════════════════════════════ -->
+<div class="page" id="p1">
+  <div class="p1-top">
+    <div class="logo-row">
+      <div class="logo-dot">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="6" cy="6" r="3.5" fill="none" stroke="white" stroke-width="2"/>
+          <circle cx="6" cy="18" r="3.5" fill="none" stroke="white" stroke-width="2"/>
+          <line x1="8.5" y1="8.5" x2="18" y2="18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="8.5" y1="15.5" x2="14" y2="10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="logo-name">BeautyBook</span>
+    </div>
+
+    <div class="p1-badge">Partner Presentation 2026</div>
+
+    <h1 class="p1-headline">
+      Your salon.<br/>
+      Fully booked<br/>
+      <span>automatically.</span>
+    </h1>
+
+    <p class="p1-sub">
+      The first beauty booking platform in Armenia — clients and salons connected in real time.
+    </p>
+
+    <div class="p1-pills">
+      <div class="p1-pill"><span class="dot"></span> Instant visibility to new clients</div>
+      <div class="p1-pill"><span class="dot"></span> Manage bookings from your phone</div>
+      <div class="p1-pill"><span class="dot"></span> Zero double-bookings, zero missed calls</div>
+    </div>
+  </div>
+
+  <div class="p1-bottom">
+    <div style="padding: 0 48px 0; flex:1; display:flex; align-items:flex-end;">
+      <div style="display:flex; gap:16px; align-items:flex-end;">
+        <!-- Main phone -->
+        <div style="width:200px; flex-shrink:0;">
+          <div class="phone-frame" style="border-color:#333;">
+            <img src="screenshots/Screenshot1.png" style="width:100%; height:360px; object-fit:cover; object-position:top; display:block;" />
+          </div>
+        </div>
+        <!-- Side phone -->
+        <div style="width:160px; flex-shrink:0; transform:translateY(20px); opacity:0.65;">
+          <div class="phone-frame" style="border-color:#333;">
+            <img src="screenshots/Screenshot2.png" style="width:100%; height:290px; object-fit:cover; object-position:top; display:block;" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p1-stats">
+      <div>
+        <div class="p1-stat-num">3</div>
+        <div class="p1-stat-label">Taps to<br/>book</div>
+      </div>
+      <div>
+        <div class="p1-stat-num">0</div>
+        <div class="p1-stat-label">Double<br/>bookings</div>
+      </div>
+      <div>
+        <div class="p1-stat-num">24/7</div>
+        <div class="p1-stat-label">Appointment<br/>booking</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — HOW IT WORKS
+══════════════════════════════════════════════ -->
+<div class="page" id="p2">
+  <div style="padding: 48px;">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">How it works</span>
+    </div>
+    <h2 class="section-title">Simple for everyone.</h2>
+    <p class="section-sub">One app, two experiences: clients book, salons manage — all in seconds.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1px 1fr; gap:28px;">
+
+      <!-- CLIENT SIDE -->
+      <div>
+        <div class="workflow-col-title wct-client">
+          Client Side <span class="wct-badge">Mobile app</span>
+        </div>
+        <div class="workflow-steps">
+          <div class="wf-step">
+            <div class="wf-num wf-num-red">1</div>
+            <div class="wf-content">
+              <div class="wf-title">Discover salons</div>
+              <div class="wf-desc">Browse nearby salons, filter by service (haircut, manicure, massage…), view photos and reviews.</div>
+            </div>
+          </div>
+          <div class="wf-step">
+            <div class="wf-num wf-num-red">2</div>
+            <div class="wf-content">
+              <div class="wf-title">Pick a time slot</div>
+              <div class="wf-desc">Select a service, choose a staff member, and book the available slot that works — in under 30 seconds.</div>
+            </div>
+          </div>
+          <div class="wf-step">
+            <div class="wf-num wf-num-red">3</div>
+            <div class="wf-content">
+              <div class="wf-title">Instant confirmation</div>
+              <div class="wf-desc">If the slot is free, the booking is <strong>confirmed immediately</strong> — no waiting, no phone call. The appointment appears directly in their history.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client screenshots -->
+        <div style="display:flex; gap:12px; margin-top:20px; align-items:flex-start;">
+          <div style="width:130px; flex-shrink:0; text-align:center;">
+            <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+              <img src="screenshots/Screenshot3.png" style="width:100%; height:auto; display:block;" />
+            </div>
+            <div style="font-size:8.5px; color:var(--gray); margin-top:5px; font-weight:600;">Salon search</div>
+          </div>
+          <div style="width:130px; flex-shrink:0; text-align:center;">
+            <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+              <img src="screenshots/Screenshot4.png" style="width:100%; height:auto; display:block;" />
+            </div>
+            <div style="font-size:8.5px; color:var(--gray); margin-top:5px; font-weight:600;">Salon page & booking</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VERTICAL DIVIDER -->
+      <div style="background:#eee; width:1px;"></div>
+
+      <!-- BUSINESS SIDE -->
+      <div>
+        <div class="workflow-col-title wct-biz">
+          Salon Side <span class="wct-badge">Owner dashboard</span>
+        </div>
+        <div class="workflow-steps">
+          <div class="wf-step">
+            <div class="wf-num wf-num-dark">1</div>
+            <div class="wf-content">
+              <div class="wf-title">Automatic bookings</div>
+              <div class="wf-desc">When a slot is free, the booking is confirmed <strong>automatically</strong> — no action needed. Your schedule fills itself.</div>
+            </div>
+          </div>
+          <div class="wf-step">
+            <div class="wf-num wf-num-dark">2</div>
+            <div class="wf-content">
+              <div class="wf-title">Handle edge cases</div>
+              <div class="wf-desc">For tight slots, the request appears as pending. One tap to confirm or decline — competing requests are cancelled automatically.</div>
+            </div>
+          </div>
+          <div class="wf-step">
+            <div class="wf-num wf-num-dark">3</div>
+            <div class="wf-content">
+              <div class="wf-title">Complete dashboard</div>
+              <div class="wf-desc">View all your bookings by day. Each employee sees their own schedule. Zero risk of double-booking, ever.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business screenshots -->
+        <div style="display:flex; gap:12px; margin-top:20px; align-items:flex-start;">
+          <div style="width:130px; flex-shrink:0; text-align:center;">
+            <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+              <img src="screenshots/Screenshot5.png" style="width:100%; height:auto; display:block;" />
+            </div>
+            <div style="font-size:8.5px; color:var(--gray); margin-top:5px; font-weight:600;">Pending & confirmed bookings</div>
+          </div>
+          <div style="width:130px; flex-shrink:0; text-align:center;">
+            <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+              <img src="screenshots/screenshot6.png" style="width:100%; height:auto; display:block;" />
+            </div>
+            <div style="font-size:8.5px; color:var(--gray); margin-top:5px; font-weight:600;">Service creation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 — BUSINESS SPACE
+══════════════════════════════════════════════ -->
+<div class="page" id="p3">
+  <div style="padding:48px;">
+
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">For salon owners</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; margin-bottom:24px;">
+      <div>
+        <h2 class="section-title">Your salon, under control.</h2>
+        <p class="section-sub" style="margin-bottom:0;">A complete dashboard to manage bookings, team and profile — no complex setup.</p>
+      </div>
+    </div>
+
+    <div class="feature-cards">
+      <!-- Card 1 — Dashboard -->
+      <div class="feature-card accent">
+        <span class="fc-icon">📊</span>
+        <div class="fc-title">Real-time dashboard</div>
+        <div class="fc-desc">View all your requests and confirmations on a single screen.</div>
+        <ul class="fc-list" style="margin-top:10px;">
+          <li>Pending requests (PENDING)</li>
+          <li>Today's confirmed bookings</li>
+          <li>Full history</li>
+          <li>Filter by employee and date</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 — Team management -->
+      <div class="feature-card">
+        <span class="fc-icon">👥</span>
+        <div class="fc-title">Team management</div>
+        <div class="fc-desc">Invite your staff and assign them specific services.</div>
+        <ul class="fc-list">
+          <li>Invite via unique link (48h)</li>
+          <li>Individual schedule per employee</li>
+          <li>Each employee sees their own bookings</li>
+          <li>Confirmation from their phone</li>
+          <li>Manually block a slot (walk-in, phone call) — hidden from online bookings</li>
+        </ul>
+      </div>
+
+      <!-- Card 3 — Salon profile -->
+      <div class="feature-card">
+        <span class="fc-icon">🏪</span>
+        <div class="fc-title">Complete salon profile</div>
+        <div class="fc-desc">Your online showcase: photos, services, opening hours.</div>
+        <ul class="fc-list">
+          <li>Unlimited photo gallery</li>
+          <li>Service list with prices</li>
+          <li>Hours per day of the week</li>
+          <li>Address and contact visible</li>
+        </ul>
+      </div>
+
+      <!-- Card 4 — Anti-abuse -->
+      <div class="feature-card">
+        <span class="fc-icon">🛡️</span>
+        <div class="fc-title">Zero abuse, zero no-shows</div>
+        <div class="fc-desc">The system protects your schedule against abusive bookings.</div>
+        <ul class="fc-list">
+          <li>Max 4 active bookings per client (across all salons)</li>
+          <li>Max 3 active bookings per client at your salon specifically</li>
+          <li>Cancellation not allowed within 24h</li>
+          <li>Conflicting bookings cancelled automatically</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom screenshots row -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:4px;">
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot7.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:9px;color:var(--gray);margin-top:5px;font-weight:600;">Team & employees</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot8.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:9px;color:var(--gray);margin-top:5px;font-weight:600;">Salon profile</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot9.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:9px;color:var(--gray);margin-top:5px;font-weight:600;">Services & hours</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — STATISTICS
+══════════════════════════════════════════════ -->
+<div class="page" id="p4">
+  <div style="padding:48px;">
+
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Track your business</span>
+    </div>
+    <div style="margin-bottom:24px;">
+      <h2 class="section-title">Your data, at a glance.</h2>
+      <p class="section-sub" style="margin-bottom:0;">The statistics dashboard gives you a clear view of what's happening in your salon — without having to search.</p>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="stats-kpi-grid">
+      <div class="stats-kpi-card">
+        <span class="stats-kpi-icon">💰</span>
+        <div class="stats-kpi-value"><span>Revenue</span> earned</div>
+        <div class="stats-kpi-label">Total revenue over the last 7 or 30 days</div>
+      </div>
+      <div class="stats-kpi-card">
+        <span class="stats-kpi-icon">📅</span>
+        <div class="stats-kpi-value">Today's <span>bookings</span></div>
+        <div class="stats-kpi-label">Number of confirmed appointments today</div>
+      </div>
+      <div class="stats-kpi-card">
+        <span class="stats-kpi-icon">✅</span>
+        <div class="stats-kpi-value">Confirmation <span>rate</span></div>
+        <div class="stats-kpi-label">% of bookings honoured vs cancelled</div>
+      </div>
+      <div class="stats-kpi-card">
+        <span class="stats-kpi-icon">⭐</span>
+        <div class="stats-kpi-value">Avg. <span>rating</span></div>
+        <div class="stats-kpi-label">Average of client reviews left for the salon</div>
+      </div>
+    </div>
+
+    <!-- 3 sections -->
+    <div class="stats-sections-grid">
+
+      <div class="stats-section-card">
+        <div class="stats-section-title"><span class="ss-icon">📈</span> Activity</div>
+        <div class="stats-item">Peak days of the week</div>
+        <div class="stats-item">Monthly revenue over the last 6 months</div>
+        <div class="stats-item">Top 5 most booked services</div>
+        <div class="stats-item">Next confirmed appointment</div>
+      </div>
+
+      <div class="stats-section-card">
+        <div class="stats-section-title"><span class="ss-icon">👥</span> Clientele</div>
+        <div class="stats-item">New clients vs returning clients</div>
+        <div class="stats-item">Schedule fill rate</div>
+        <div class="stats-item">Average confirmation delay</div>
+      </div>
+
+      <div class="stats-section-card">
+        <div class="stats-section-title"><span class="ss-icon">🔮</span> Forecasts</div>
+        <div class="stats-item">Projected end-of-month revenue</div>
+        <div class="stats-item">Services growing or declining</div>
+        <div class="stats-item">Cancellation breakdown by reason</div>
+      </div>
+
+    </div>
+
+    <!-- Screenshots stats 16-18 -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:20px;">
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot16.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;"></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot17.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;"></div>
+      </div>
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot18.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 — CLIENT EXPERIENCE
+══════════════════════════════════════════════ -->
+<div class="page" id="p4-client">
+  <div style="padding:48px;">
+
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">What your clients experience</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; margin-bottom:28px;">
+      <div>
+        <h2 class="section-title">Book in 3 taps.</h2>
+        <p class="section-sub" style="margin-bottom:0;">The simplest client experience possible — inspired by Airbnb, designed for beauty.</p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px;">
+      <div class="cs-step">
+        <div class="cs-num">1</div>
+        <div class="cs-icon">🔍</div>
+        <div class="cs-title">Explore</div>
+        <div class="cs-desc">Browse nearby salons, filter by service, view photos and reviews.</div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-num">2</div>
+        <div class="cs-icon">📅</div>
+        <div class="cs-title">Book</div>
+        <div class="cs-desc">Choose a service, a staff member, a date and an available slot.</div>
+      </div>
+      <div class="cs-step">
+        <div class="cs-num">3</div>
+        <div class="cs-icon">⚡</div>
+        <div class="cs-title">Instant</div>
+        <div class="cs-desc">Slot is free → booking confirmed immediately. No waiting, no call.</div>
+      </div>
+    </div>
+
+    <!-- Screenshots row 1 : 10-12 -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:10px;">
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot10.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;">Salon detail</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot11.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;">Choose a service</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot12.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;">Choose a practitioner</div>
+      </div>
+    </div>
+    <!-- Guarantees -->
+    <div style="display:flex; gap:10px;">
+      <div class="guarantee-item">
+        <div class="gi-icon">🌍</div>
+        <div>
+          <div class="gi-title">3 languages</div>
+          <div class="gi-desc">Armenian, French, English</div>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <div class="gi-icon">❤️</div>
+        <div>
+          <div class="gi-title">Favourites</div>
+          <div class="gi-desc">Save your preferred salons</div>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <div class="gi-icon">🔒</div>
+        <div>
+          <div class="gi-title">Secure</div>
+          <div class="gi-desc">Encrypted data, HTTPS</div>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <div class="gi-icon">📱</div>
+        <div>
+          <div class="gi-title">iOS & Android</div>
+          <div class="gi-desc">Native app, smooth experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE — FAVOURITES & SEARCH
+══════════════════════════════════════════════ -->
+<div class="page" id="p-favorites">
+  <div style="padding:48px;">
+
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Discover & find again</span>
+    </div>
+    <div style="margin-bottom:24px;">
+      <h2 class="section-title">Favourites & Search.</h2>
+      <p class="section-sub" style="margin-bottom:0;">Save your favourite salons and find exactly what you're looking for in seconds.</p>
+    </div>
+
+    <div style="display:flex; gap:24px; justify-content:center;">
+      <div style="width:200px; flex-shrink:0; text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot13.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;">Availability</div>
+      </div>
+      <div style="width:200px; flex-shrink:0; text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot14.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;">Confirmation</div>
+      </div>
+      <div style="width:200px; flex-shrink:0; text-align:center;">
+        <div style="border-radius:16px; border:5px solid #1a1a1a; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.25);">
+          <img src="screenshots/Screenshot15.png" style="width:100%; height:auto; display:block;" />
+        </div>
+        <div style="font-size:8.5px;color:var(--gray);margin-top:5px;font-weight:600;">My bookings</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE — JOIN BEAUTYBOOK
+══════════════════════════════════════════════ -->
+<div class="page" id="p5">
+  <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; padding:56px 48px 0;">
+    <!-- LEFT -->
+    <div>
+      <div class="p5-eyebrow">Launch in Armenia</div>
+      <h2 class="p5-headline">
+        Be among<br/>
+        the <span>first</span><br/>
+        listed salons.
+      </h2>
+      <p class="p5-desc">
+        BeautyBook is in its launch phase. The first salons to register benefit from maximum visibility and personalised support.
+      </p>
+      <div class="p5-benefits">
+        <div class="p5-benefit">
+          <div class="p5-benefit-icon">🏆</div>
+          <div class="p5-benefit-text">
+            <div class="p5-bt-title">Priority in search results</div>
+            <div class="p5-bt-desc">First salons to register appear at the top of the list</div>
+          </div>
+        </div>
+        <div class="p5-benefit">
+          <div class="p5-benefit-icon">🎯</div>
+          <div class="p5-benefit-text">
+            <div class="p5-bt-title">100% free profile at sign-up</div>
+            <div class="p5-bt-desc">Publish your salon, services and photos — no cost</div>
+          </div>
+        </div>
+        <div class="p5-benefit">
+          <div class="p5-benefit-icon">🤝</div>
+          <div class="p5-benefit-text">
+            <div class="p5-bt-title">Onboarding support</div>
+            <div class="p5-bt-desc">We help you set up your profile and your team</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+
+      <div class="p5-contact-card">
+        <div class="p5-cc-title">Contact us</div>
+        <div class="p5-cc-item">
+          <div class="p5-cc-icon">📧</div>
+          <div>
+            <div class="p5-cc-val">contact@beautybook.am</div>
+            <div class="p5-cc-sub">Reply within 24h</div>
+          </div>
+        </div>
+        <div class="p5-cc-item">
+          <div class="p5-cc-icon">📱</div>
+          <div>
+            <div class="p5-cc-val">+374 — — — — — —</div>
+            <div class="p5-cc-sub">WhatsApp / Call</div>
+          </div>
+        </div>
+        <div class="p5-cc-item">
+          <div class="p5-cc-icon">🌐</div>
+          <div>
+            <div class="p5-cc-val">beautybook.am</div>
+            <div class="p5-cc-sub">Coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p5-cta-btn">
+        Register my salon now →
+      </div>
+
+    </div>
+  </div>
+
+  <div style="padding: 0 48px 40px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08); margin-top:24px;">
+      <div>
+        <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:white;">
+          Beauty<span style="color:var(--red);">Book</span>
+        </div>
+        <div style="font-size:9px; color:rgba(255,255,255,0.3); margin-top:2px;">Beauty booking, simplified.</div>
+      </div>
+      <div style="font-size:9px; color:rgba(255,255,255,0.2);">© 2026 BeautyBook — Confidential</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
